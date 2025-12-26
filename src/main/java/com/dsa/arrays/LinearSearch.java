@@ -1,7 +1,8 @@
 package com.dsa.arrays;
 
 import java.util.List;
-import java.util.Scanner;
+
+import com.dsa.utils.Utility;
 
 public class LinearSearch {
 
@@ -26,17 +27,11 @@ public class LinearSearch {
 
 	}
 
-	public static List<String> splitWords(String s) {
-		return s.isEmpty() ? List.of() : List.of(s.split(" "));
-	}
-
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
 		System.out.print("Enter Array Elements separated by whitespace: ");
-		List<Integer> arr = splitWords(scanner.nextLine()).stream().map(Integer::parseInt).toList();
+		List<Integer> arr = Utility.getUnModifiableListOfIntegersFromUserInput();
 		System.out.print("Enter Target value: ");
-		int target = Integer.parseInt(scanner.nextLine());
-		scanner.close();
+		int target = Utility.getIntegerFromUserInput();
 		int res = performLinearSearch(arr, target);
 		System.out.println(res);
 

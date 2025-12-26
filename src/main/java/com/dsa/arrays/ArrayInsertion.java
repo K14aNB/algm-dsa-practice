@@ -1,8 +1,8 @@
 package com.dsa.arrays;
 
 import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Collectors;
+
+import com.dsa.utils.Utility;
 
 public class ArrayInsertion {
 
@@ -27,22 +27,26 @@ public class ArrayInsertion {
         return arr;
     }
 
-    public static List<String> splitWords(String s) {
-        return s.isEmpty() ? List.of() : List.of(s.split(" "));
-    }
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter Array Elements separated by whitespace: ");
-        List<Integer> arr = splitWords(scanner.nextLine()).stream().map(Integer::parseInt).collect(Collectors.toList());
+        List<Integer> modifiableArray1 = Utility.getModifiableListOfIntegersFromUserInput();
         System.out.print("Enter Values to be inserted into Array separated by whitespace: ");
-        List<Integer> values = splitWords(scanner.nextLine()).stream().map(Integer::parseInt).toList();
-        System.out.print("Enter Indices to insert the values separated by whitespace: ");
-        List<Integer> indices = splitWords(scanner.nextLine()).stream().map(Integer::parseInt).toList();
-        scanner.close();
-        int resultSize = appendAndCount(arr, values);
-        List<Integer> modifiedArrayUsingAdd = insertAtPositionUsingAdd(arr, indices.get(0), values.get(0));
-        List<Integer> modifiedArray = insertAtPosition(modifiedArrayUsingAdd, indices.get(0), values.get(0));
+        List<Integer> values = Utility.getUnModifiableListOfIntegersFromUserInput();
+        System.out.print("Enter Array Elements separated by whitespace: ");
+        List<Integer> modifiableArray2 = Utility.getModifiableListOfIntegersFromUserInput();
+        System.out.print("Enter index for the value to be inserted: ");
+        int index1 = Utility.getIntegerFromUserInput();
+        System.out.print("Enter value to be inserted: ");
+        int value1 = Utility.getIntegerFromUserInput();
+        System.out.print("Enter Array Elements separated by whitespace: ");
+        List<Integer> modifiableArray3 = Utility.getModifiableListOfIntegersFromUserInput();
+        System.out.print("Enter index for the value to be inserted: ");
+        int index2 = Utility.getIntegerFromUserInput();
+        System.out.print("Enter value to be inserted: ");
+        int value2 = Utility.getIntegerFromUserInput();
+        int resultSize = appendAndCount(modifiableArray1, values);
+        List<Integer> modifiedArrayUsingAdd = insertAtPositionUsingAdd(modifiableArray2, index1, value1);
+        List<Integer> modifiedArray = insertAtPosition(modifiableArray3, index2, value2);
         System.out.println("Size of Resulting Array: " + resultSize);
         System.out.println("Modified Array Using in-built add method: " + modifiedArrayUsingAdd);
         System.out.println("Modified Array: " + modifiedArray);

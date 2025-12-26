@@ -1,11 +1,12 @@
 package com.dsa.arrays;
 
 import java.util.List;
-import java.util.Scanner;
+
+import com.dsa.utils.Utility;
 
 public class Maximum {
 
-    public static int findMaximum(List<Integer> nums) {
+    public static int findMaximumOnUnsortedArray(List<Integer> nums) {
         int max = nums.get(0);
 
         for (int i = 1; i < nums.size(); i++) {
@@ -16,16 +17,11 @@ public class Maximum {
         return max;
     }
 
-    public static List<String> splitWords(String s) {
-        return s.isEmpty() ? List.of() : List.of(s.split(" "));
-    }
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
         System.out.print("Enter Array Elements separated by whitespace: ");
-        List<Integer> arr = splitWords(scanner.nextLine()).stream().map(Integer::parseInt).toList();
-        scanner.close();
-        int maxValue = findMaximum(arr);
+        List<Integer> arr = Utility.getUnModifiableListOfIntegersFromUserInput();
+        int maxValue = findMaximumOnUnsortedArray(arr);
         System.out.println("Maximum Value: " + maxValue);
 
     }
