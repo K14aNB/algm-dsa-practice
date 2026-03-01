@@ -24,4 +24,8 @@ public class Utility {
         return Integer.parseInt(scanner.nextLine());
     }
 
+    public static String getStringFromUserInput() {
+        return scanner.nextLine();
+    }
+
 }
