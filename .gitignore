@@ -28,6 +28,14 @@ tmp/
 # VS Code
 .vscode
 
+# Intellij IDEA
+.idea
+*.iml
+
 # General files to ignore
 .log
 .lock
+
+# Output files
+out/
+target/
